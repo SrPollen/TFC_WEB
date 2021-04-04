@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.scss';
+import { Component } from 'react';
+import Users from './components/users';
+import BaseUrl from './components/globalvars';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    users: [],
+    isFetching: true
+  }
+
+  componentDidMount() {
+    fetch(BaseUrl + '/user')
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ users: data, isFetching: false })
+    })
+    .catch(console.log)
+  }
+
+  render() {
+    if(this.state.isFetching){
+      return 'Loading ...';
+    }
+    return (
+      <Users users={this.state.users} />
+    )
+  }
+  
 }
 
 export default App;
