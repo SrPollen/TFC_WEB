@@ -2,7 +2,7 @@ import './Home.scss';
 import { Component } from 'react';
 import Users from '../../components/users';
 import BaseUrl from '../../components/globalvars';
-
+import ScrollComponent from './ScrollComponent';
 import Cookies from 'universal-cookie';
 
 const cookies =  new Cookies();
@@ -13,7 +13,7 @@ class Home extends Component {
       users: [],
       isFetching: true
     }
-  
+
     componentDidMount() {
 
       if(!cookies.get('id')){
@@ -36,19 +36,19 @@ class Home extends Component {
     }
 
     render() {
-      console.log(cookies.get('id'));
-      console.log(cookies.get('username'));
-      console.log(cookies.get('email'));
+      //console.log(cookies.get('id'));
+      //console.log(cookies.get('username'));
+      //console.log(cookies.get('email'));
 
       if(this.state.isFetching){
         return 'Loading ...';
       }
       
-      
       return (
         <div>
+          <button onClick={this.logOut}>Cerrar sesión</button>
           <Users users={this.state.users} />
-          <button onClick={this.logOut}>Log Out</button>
+          <ScrollComponent cookies={cookies} />
         </div>
       )
     }
