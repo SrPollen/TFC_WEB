@@ -9,6 +9,10 @@ import GroupIcon from "@material-ui/icons/Group";
 import LockIcon from "@material-ui/icons/Lock";
 import MailIcon from "@material-ui/icons/Mail";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import ErrorIcon from "@material-ui/icons/Error";
+
+import ImageLogin from "../../resources/log.svg";
+import ImageRegister from "../../resources/register.svg";
 
 const cookies = new Cookies();
 
@@ -16,6 +20,7 @@ class Login extends Component {
   state = {
     loginMode: true,
     loginValidation: false,
+    registerValidation: false,
     formL: {
       username: "",
       password: "",
@@ -45,7 +50,9 @@ class Login extends Component {
 
     if (e.target.checkValidity()) {
       e.target.parentElement.classList.remove("invalid");
+      e.target.nextSibling.classList.add("hide-error");
     }
+
     console.log(this.state.formL);
   };
 
@@ -56,6 +63,11 @@ class Login extends Component {
         [e.target.name]: e.target.value,
       },
     });
+
+    if (e.target.checkValidity()) {
+      e.target.parentElement.classList.remove("invalid");
+      e.target.nextSibling.classList.add("hide-error");
+    }
     console.log(this.state.formR);
   };
 
@@ -101,7 +113,8 @@ class Login extends Component {
   };
 
   registerUser = async () => {
-    if (this.validateRegister) {
+    this.validateRegister();
+    if (this.state.registerValidation) {
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -128,15 +141,14 @@ class Login extends Component {
             cookies.set("id", data.id, { path: "/" });
             cookies.set("username", data.username, { path: "/" });
             cookies.set("email", data.email, { path: "/" });
-            //window.location.href = "./";
+            window.location.href = "./";
           }
         })
         .catch((error) => {
+          document.getElementById("error-register").innerHTML = "El nombre de usuario seleccionado ya esta en uso";
           this.setState({ errorMessage: error.toString() });
           console.error("There was an error!", error);
         });
-    } else {
-      console.log("Contraseña diferente");
     }
   };
 
@@ -145,7 +157,7 @@ class Login extends Component {
   };
 
   validateLogin = () => {
-    document.getElementById("error-login").innerHTML ="";
+    document.getElementById("error-login").innerHTML = "";
     let loginFields = [
       document.getElementById("username"),
       document.getElementById("password"),
@@ -153,11 +165,13 @@ class Login extends Component {
     let success = true;
     loginFields.forEach((element) => {
       if (!element.checkValidity()) {
-        console.log(element.validationMessage);
-        element.parentElement.classList.add("invalid");
         element.reportValidity();
+        element.parentElement.classList.add("invalid");
+        element.nextSibling.classList.remove("hide-error");
+
         success = false;
       } else {
+        element.nextSibling.classList.add("hide-error");
         element.parentElement.classList.remove("invalid");
       }
     });
@@ -165,13 +179,42 @@ class Login extends Component {
   };
 
   validateRegister = () => {
+    let inputs = Array.from(
+      document
+        .getElementsByClassName("sign-up-form")[0]
+        .getElementsByTagName("input")
+    );
+
+    let success = true;
+    inputs.forEach((element) => {
+      if (!element.checkValidity()) {
+        element.reportValidity();
+        element.parentElement.classList.add("invalid");
+        element.nextSibling.classList.remove("hide-error");
+
+        success = false;
+      } else {
+        element.nextSibling.classList.add("hide-error");
+        element.parentElement.classList.remove("invalid");
+      }
+    });
+
+    let passConfirm = document.getElementById("passConfirm");
+    let pass = document.getElementById("pass");
     if (
-      document.getElementById("pass").value ===
-      document.getElementById("passConfirm").value
+      !pass.checkValidity() ||
+      !passConfirm.checkValidity() ||
+      pass.value !== passConfirm.value
     ) {
-      return true;
+      pass.parentElement.classList.add("invalid");
+      passConfirm.parentElement.classList.add("invalid");
+      success = false;
+    } else {
+      pass.parentElement.classList.remove("invalid");
+      passConfirm.parentElement.classList.remove("invalid");
     }
-    return false;
+
+    this.setState({ registerValidation: success });
   };
 
   render() {
@@ -185,6 +228,7 @@ class Login extends Component {
           <div className="signin-signup">
             <div className="form sign-in-form">
               <h2 className="title">Inicia sesión</h2>
+
               <div className="input-field">
                 <div className="centered-icon">
                   <PersonIcon color="primary" />
@@ -199,7 +243,11 @@ class Login extends Component {
                   maxLength="20"
                   required
                 />
+                <div className="centered-icon hide-error">
+                  <ErrorIcon color="error" />
+                </div>
               </div>
+
               <div className="input-field">
                 <div className="centered-icon">
                   <LockIcon color="primary" />
@@ -213,11 +261,15 @@ class Login extends Component {
                   minLength="4"
                   required
                 />
+                <div className="centered-icon hide-error">
+                  <ErrorIcon color="error" />
+                </div>
               </div>
+
+              <p id="error-login" className="error-text"></p>
               <button className="btn" onClick={this.logIn}>
                 Iniciar sesión
               </button>
-              <p id="error-login" className="error-text"></p>
             </div>
 
             <div className="form sign-up-form">
@@ -235,6 +287,9 @@ class Login extends Component {
                   maxLength="20"
                   required
                 />
+                <div className="centered-icon hide-error">
+                  <ErrorIcon color="error" />
+                </div>
               </div>
               <div className="input-field">
                 <div className="centered-icon">
@@ -249,6 +304,9 @@ class Login extends Component {
                   maxLength="20"
                   required
                 />
+                <div className="centered-icon hide-error">
+                  <ErrorIcon color="error" />
+                </div>
               </div>
               <div className="input-field">
                 <div className="centered-icon">
@@ -263,6 +321,9 @@ class Login extends Component {
                   maxLength="20"
                   required
                 />
+                <div className="centered-icon hide-error">
+                  <ErrorIcon color="error" />
+                </div>
               </div>
               <div className="input-field">
                 <div className="centered-icon">
@@ -276,6 +337,9 @@ class Login extends Component {
                   minLength="6"
                   required
                 />
+                <div className="centered-icon hide-error">
+                  <ErrorIcon color="error" />
+                </div>
               </div>
               <div className="input-field">
                 <div className="centered-icon">
@@ -290,6 +354,9 @@ class Login extends Component {
                   minLength="4"
                   required
                 />
+                <div className="centered-icon hide-error">
+                  <ErrorIcon color="error" />
+                </div>
               </div>
               <div className="input-field">
                 <div className="centered-icon">
@@ -304,7 +371,11 @@ class Login extends Component {
                   minLength="4"
                   required
                 />
+                <div className="centered-icon hide-error">
+                  <ErrorIcon color="error" />
+                </div>
               </div>
+              <p id="error-register" className="error-text"></p>
               <button className="btn" onClick={this.registerUser}>
                 Registrarse
               </button>
@@ -328,7 +399,7 @@ class Login extends Component {
                 Registrarse
               </button>
             </div>
-            <img src="img/log.svg" className="image" alt="" />
+            <img src={ImageLogin} className="image" alt="" />
           </div>
           <div className="panel right-panel">
             <div className="content">
@@ -345,7 +416,7 @@ class Login extends Component {
                 Inicia sesión
               </button>
             </div>
-            <img src="" className="image" alt="" />
+            <img src={ImageRegister} className="image" alt="" />
           </div>
         </div>
       </div>
