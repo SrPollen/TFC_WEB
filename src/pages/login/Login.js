@@ -13,6 +13,7 @@ import ErrorIcon from "@material-ui/icons/Error";
 
 import ImageLogin from "../../resources/log.svg";
 import ImageRegister from "../../resources/register.svg";
+import BackVideo from "../../resources/video.mp4";
 
 const cookies = new Cookies();
 
@@ -145,7 +146,8 @@ class Login extends Component {
           }
         })
         .catch((error) => {
-          document.getElementById("error-register").innerHTML = "El nombre de usuario seleccionado ya esta en uso";
+          document.getElementById("error-register").innerHTML =
+            "El nombre de usuario seleccionado ya esta en uso";
           this.setState({ errorMessage: error.toString() });
           console.error("There was an error!", error);
         });
@@ -159,8 +161,8 @@ class Login extends Component {
   validateLogin = () => {
     document.getElementById("error-login").innerHTML = "";
     let loginFields = [
-      document.getElementById("username"),
       document.getElementById("password"),
+      document.getElementById("username"),
     ];
     let success = true;
     loginFields.forEach((element) => {
@@ -186,7 +188,7 @@ class Login extends Component {
     );
 
     let success = true;
-    inputs.forEach((element) => {
+    inputs.reverse().forEach((element) => {
       if (!element.checkValidity()) {
         element.reportValidity();
         element.parentElement.classList.add("invalid");
@@ -208,6 +210,8 @@ class Login extends Component {
     ) {
       pass.parentElement.classList.add("invalid");
       passConfirm.parentElement.classList.add("invalid");
+      document.getElementById("error-register").innerHTML =
+        "Las contraseñas distintas o no validas";
       success = false;
     } else {
       pass.parentElement.classList.remove("invalid");
@@ -224,6 +228,9 @@ class Login extends Component {
           this.state.loginMode ? "container" : "container sign-up-mode"
         }
       >
+        <video autoPlay muted loop className="video">
+          <source src={BackVideo} type="video/mp4" />
+        </video>
         <div className="forms-container">
           <div className="signin-signup">
             <div className="form sign-in-form">

@@ -1,4 +1,6 @@
 import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, Move, MoveIn, MoveOut, Sticky, StickyIn, ZoomIn } from "react-scroll-motion";
+import GetAppIcon from '@material-ui/icons/GetApp';
+import BarChartIcon from '@material-ui/icons/BarChart';
 
 const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
 const FadeUp = batch(Fade(), Move(), Sticky());
@@ -9,7 +11,7 @@ const ScrollComponent = ({ cookies }) => {
       <ScrollContainer>
         <ScrollPage page={0}>
           <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
-            <span style={{ fontSize: "30px" }}> Bienvenido {cookies.get('username')} 😀</span>
+            <span style={{ fontSize: "40px" }}> Bienvenido {cookies.get('username')} 😀</span>
           </Animator>
         </ScrollPage>
         <ScrollPage page={1}>
@@ -34,7 +36,15 @@ const ScrollComponent = ({ cookies }) => {
         </ScrollPage>
         <ScrollPage page={4}>
           <Animator animation={batch(Fade(), Sticky())}>
-            <span style={{ fontSize: "40px" }}>Descargar</span>
+            <div className="final-container">
+              <div className="button-container">
+                <a className="rgb" href="#"><span><BarChartIcon style={{ fontSize: 80 , marginTop: 80 }} /><p>Ir a tops</p></span></a>
+              </div>
+              <div className="break"></div>
+              <div className="button-container">
+                <a className="rgb" href="#"><span><GetAppIcon style={{ fontSize: 80 , marginTop: 80 }} /> <br />Descargar </span></a>
+              </div>
+            </div>
           </Animator>
       </ScrollPage>
     </ScrollContainer>
@@ -42,3 +52,8 @@ const ScrollComponent = ({ cookies }) => {
   };
   
   export default ScrollComponent;
+
+  //<span style={{ fontSize: "40px" }}>Descargar</span>
+
+  
+

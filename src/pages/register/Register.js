@@ -1,10 +1,7 @@
 import "./Register.scss";
 import { Component } from "react";
 import BaseUrl from "../../components/globalvars";
-import Cookies from "universal-cookie";
-import { useForm } from "react-hook-form";
 
-const cookies = new Cookies();
 
 class Register extends Component {
   state = {
