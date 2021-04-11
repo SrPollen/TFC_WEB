@@ -1,19 +1,4 @@
 
-body {
-  font-family: "Poppins", sans-serif;
-  color: white;
-  background-color: rgb(0, 0, 0);
-}
-
-.video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-  }
-  
-
 .rgb{ 
     display: flex;
     align-items: center;
@@ -106,7 +91,7 @@ body {
     left: 25px;
     width: 84%;
     height: 66%;
-    background: rgba($color: #3d3d3d, $alpha: 0.1);
+    background: rgba($color: #3d3d3d, $alpha: 0.3);
     border-radius: 100%;
 }
 
@@ -136,4 +121,12 @@ body {
     .rgb{ 
         -webkit-box-reflect: unset;
     }
+}
+
+.tsparticles-canvas-el{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
 }

@@ -13,7 +13,8 @@ import ErrorIcon from "@material-ui/icons/Error";
 
 import ImageLogin from "../../resources/log.svg";
 import ImageRegister from "../../resources/register.svg";
-import BackVideo from "../../resources/video.mp4";
+
+import ParticlesBG from "../../components/particles/Particles";
 
 const cookies = new Cookies();
 
@@ -228,9 +229,7 @@ class Login extends Component {
           this.state.loginMode ? "container" : "container sign-up-mode"
         }
       >
-        <video autoPlay muted loop className="video">
-          <source src={BackVideo} type="video/mp4" />
-        </video>
+        <ParticlesBG className="particles" />
         <div className="forms-container">
           <div className="signin-signup">
             <div className="form sign-in-form">
