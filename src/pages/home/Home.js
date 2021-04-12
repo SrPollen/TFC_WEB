@@ -5,6 +5,7 @@ import ScrollComponent from "./ScrollComponent";
 import Cookies from "universal-cookie";
 
 import ParticlesBG from "../../components/particles/Particles";
+import Navbar from "../../components/navbar/Navbar";
 
 const cookies = new Cookies();
 
@@ -16,6 +17,13 @@ class Home extends Component {
     window.location.href = "./login";
   };
 
+  componentDidMount() {
+    if (!cookies.get("id")) {
+      window.location.href = "./login";
+    }
+  }
+
+
   render() {
     //console.log(cookies.get('id'));
     //console.log(cookies.get('username'));
@@ -23,8 +31,8 @@ class Home extends Component {
 
     return (
       <div>
+        <Navbar logOut ={this.logOut} />
         <ParticlesBG className="particles" />
-        <button onClick={this.logOut}>Cerrar sesión</button>
         <ScrollComponent cookies={cookies} />
       </div>
     );
