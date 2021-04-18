@@ -5,7 +5,7 @@ import Users from "../../components/users";
 
 import Cookies from "universal-cookie";
 
-import ParticlesBG from "../../components/particles/Particles";
+//import ParticlesBG from "../../components/particles/Particles";
 
 const cookies = new Cookies();
 

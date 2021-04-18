@@ -49,14 +49,14 @@ const Navbar = () => {
         </li>
 
         <li className="nav-item">
-          <a href="#download" className="nav-link">
+          <a href="/images/user.png" download className="nav-link">
             <GetAppIcon />
             <span className="link-text">Descarga</span>
           </a>
         </li>
 
         <li className="nav-item">
-          <a onClick={logOut} className="nav-link">
+          <a href="./" onClick={logOut} className="nav-link">
             <ExitToAppIcon />
             <span className="link-text">Salir</span>
           </a>

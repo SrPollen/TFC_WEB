@@ -1,6 +1,5 @@
 import "./Home.scss";
 import { Component } from "react";
-import BaseUrl from "../../components/globalvars";
 import ScrollComponent from "./ScrollComponent";
 import Cookies from "universal-cookie";
 

@@ -1,7 +1,6 @@
 import "./Account.scss";
 import { Component } from "react";
 import BaseUrl from "../../components/globalvars";
-import Users from "../../components/users";
 
 import Cookies from "universal-cookie";
 import UserProfile from "./UserProfile";

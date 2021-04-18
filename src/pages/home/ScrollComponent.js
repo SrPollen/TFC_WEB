@@ -5,9 +5,6 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
 const FadeUp = batch(Fade(), Move(), Sticky());
 
-function goTops() {
-  window.location.href = "./top";
-};
 
 const ScrollComponent = ({ cookies }) => {
     return (
@@ -41,11 +38,11 @@ const ScrollComponent = ({ cookies }) => {
           <Animator animation={batch(Fade(), Sticky())}>
             <div className="final-container" id="download">
               <div className="button-container">
-                <a className="rgb" href="#" onClick={goTops}><span><BarChartIcon style={{ fontSize: 80 , marginTop: 80 }} /><p>Ir a tops</p></span></a>
+                <a className="rgb" href="./top" ><span><BarChartIcon style={{ fontSize: 80 , marginTop: 80 }} /><p>Ir a tops</p></span></a>
               </div>
               <div className="break"></div>
               <div className="button-container">
-                <a className="rgb" href="#"><span><GetAppIcon style={{ fontSize: 80 , marginTop: 80 }} /> <br />Descargar </span></a>
+                <a href="/images/user.png" download className="rgb"><span><GetAppIcon style={{ fontSize: 80 , marginTop: 80 }} /> <br />Descargar </span></a>
               </div>
             </div>
           </Animator>

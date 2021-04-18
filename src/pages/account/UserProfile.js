@@ -5,7 +5,7 @@ const Profile = ({ user }) => {
       <div className="account glow">
         <div className="wrapper">
           <div className="image-container">
-            <img className="glow" src="/images/user.png" alt="user-image" />
+            <img className="glow" src="/images/user.png" alt="user" />
           </div>
           <div className="content-right">
             <div>{user.username}</div>
