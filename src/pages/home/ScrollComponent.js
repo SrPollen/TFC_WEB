@@ -39,7 +39,7 @@ const ScrollComponent = ({ cookies }) => {
         </ScrollPage>
         <ScrollPage page={4}>
           <Animator animation={batch(Fade(), Sticky())}>
-            <div className="final-container">
+            <div className="final-container" id="download">
               <div className="button-container">
                 <a className="rgb" href="#" onClick={goTops}><span><BarChartIcon style={{ fontSize: 80 , marginTop: 80 }} /><p>Ir a tops</p></span></a>
               </div>

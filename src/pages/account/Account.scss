@@ -1,0 +1,67 @@
+.account-container {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  .account {
+    border-radius: 60px;
+    border: 7px solid #fff;
+    width: 700px;
+    height: min-content;
+    min-width: 200px;
+    min-height: 200px;
+    background-color: #2e2e2e;
+    padding: 60px;
+    transition: 500ms;
+    .wrapper {
+      display: flex;
+      @media (max-width: 550px) {
+        display: initial;
+      }
+      .image-container {
+        width: 100%;
+        max-width: 200px;
+        object-fit: contain;
+        align-self: flex-start;
+        @media (max-width: 550px) {
+          max-width: 100%;
+          padding: 10%;
+        }
+        img {
+          border: 7px solid #fff;
+          border-radius: 100%;
+          width: 100%;
+        }
+      }
+      .content-right {
+        padding-left: 50px;
+        flex: 1 1 auto;
+        @media (max-width: 550px) {
+          padding-top: 25px;
+          padding-left: 0px;
+        }
+      }
+    }
+    .content {
+      padding-top: 50px;
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 730px) {
+  .account:hover {
+    transform: scale(1.1);
+  }
+}
+
+
+.glow {
+  //box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #f0f, inset -20px 0 80px #0ff, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff,0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
+  box-shadow: 0 0 30px #ff79ed, 0 0 20px #fff, 0 0 40px #00e1ff;
+
+  //#00f,#0f0,#ff0,#f00,#fb0094,#00f,#0f0,#ff0,#f00
+}
