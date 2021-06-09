@@ -81,7 +81,8 @@ class Login extends Component {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username: this.state.formL.username,
-          password: md5(this.state.formL.password),
+          password: this.state.formL.password,
+          // md5(this.state.formL.password)
         }),
       };
       fetch(BaseUrl + "/login", requestOptions)
@@ -124,7 +125,7 @@ class Login extends Component {
           name: this.state.formR.name,
           lastname: this.state.formR.lastname,
           username: this.state.formR.usernameR,
-          password: md5(this.state.formR.passwordR),
+          password: this.state.formR.passwordR,
           email: this.state.formR.email,
         }),
       };

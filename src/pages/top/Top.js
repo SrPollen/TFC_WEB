@@ -5,6 +5,9 @@ import Users from "../../components/users";
 
 import Cookies from "universal-cookie";
 
+import Navbar from "../../components/navbar/Navbar";
+import ScrollTop from "./ScrollTop"
+
 //import ParticlesBG from "../../components/particles/Particles";
 
 const cookies = new Cookies();
@@ -20,7 +23,7 @@ class Top extends Component {
       window.location.href = "./login";
     }
 
-    fetch(BaseUrl + "/user")
+    fetch(BaseUrl + "/topwave")
       .then((res) => res.json())
       .then((data) => {
         this.setState({ users: data, isFetching: false });
@@ -32,10 +35,13 @@ class Top extends Component {
   render() {
     return (
       <div>
-        <Users users={this.state.users} />
+        <Navbar />
+        <ScrollTop cookies={cookies} users={this.state.users} />
       </div>
     );
   }
 }
 
 export default Top;
+
+//<Users users={this.state.users} />
