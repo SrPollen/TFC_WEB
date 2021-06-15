@@ -4,11 +4,13 @@ import BarChartIcon from "@material-ui/icons/BarChart";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import HomeIcon from '@material-ui/icons/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import LogoImage from "../../resources/logo.png";
 
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
+//Elimina las cookies y vuelve al login
 const logOut = () => {
   cookies.remove("id", { path: "/" });
   cookies.remove("username", { path: "/" });
@@ -22,8 +24,8 @@ const Navbar = () => {
       <ul className="navbar-nav">
         <li className="logo">
           <a href="./" className="nav-link">
-            <HomeIcon />
-            <span className="link-text logo-text">Titulo</span>
+            <img alt="logo" src={LogoImage} height="40"/>
+            <span className="link-text logo-text">FIREWAVE</span>
           </a>
         </li>
 
@@ -67,5 +69,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-//className="theme-icon" id="lightIcon" className="svg-inline--fa fa-moon-stars fa-w-16 fa-7x"

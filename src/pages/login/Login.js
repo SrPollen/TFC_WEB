@@ -2,7 +2,7 @@ import "./Login.scss";
 import { Component } from "react";
 import BaseUrl from "../../components/globalvars";
 import Cookies from "universal-cookie";
-import md5 from "md5";
+//import md5 from "md5";
 
 import PersonIcon from "@material-ui/icons/Person";
 import GroupIcon from "@material-ui/icons/Group";
@@ -42,6 +42,7 @@ class Login extends Component {
     }
   }
 
+  //Validacion de errores y recopilacion de los datos del login
   handleChangeLogin = async (e) => {
     await this.setState({
       formL: {
@@ -50,14 +51,15 @@ class Login extends Component {
       },
     });
 
+    //para que la validacion sale mientras se recogen datos
     if (e.target.checkValidity()) {
       e.target.parentElement.classList.remove("invalid");
       e.target.nextSibling.classList.add("hide-error");
     }
-
-    console.log(this.state.formL);
+    //console.log(this.state.formL);
   };
 
+  //Recopilacion de los datos del registro
   handleChangeRegister = async (e) => {
     await this.setState({
       formR: {
@@ -66,6 +68,7 @@ class Login extends Component {
       },
     });
 
+    //para que la validacion sale mientras se recogen datos
     if (e.target.checkValidity()) {
       e.target.parentElement.classList.remove("invalid");
       e.target.nextSibling.classList.add("hide-error");
@@ -73,6 +76,7 @@ class Login extends Component {
     console.log(this.state.formR);
   };
 
+  //POST del login
   logIn = async () => {
     this.validateLogin();
     if (this.state.loginValidation) {
@@ -115,6 +119,7 @@ class Login extends Component {
     }
   };
 
+  //POST del registro
   registerUser = async () => {
     this.validateRegister();
     if (this.state.registerValidation) {
@@ -156,10 +161,12 @@ class Login extends Component {
     }
   };
 
+  //cambio entre login y registro
   toggleRegister = () => {
     this.setState({ loginMode: !this.state.loginMode });
   };
 
+  //Validacion de errores del login
   validateLogin = () => {
     document.getElementById("error-login").innerHTML = "";
     let loginFields = [
@@ -182,6 +189,7 @@ class Login extends Component {
     this.setState({ loginValidation: success });
   };
 
+  //Validacion de errores del registro
   validateRegister = () => {
     let inputs = Array.from(
       document

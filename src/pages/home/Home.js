@@ -15,12 +15,7 @@ class Home extends Component {
     }
   }
 
-
   render() {
-    //console.log(cookies.get('id'));
-    //console.log(cookies.get('username'));
-    //console.log(cookies.get('email'));
-
     return (
       <div>
         <Navbar />

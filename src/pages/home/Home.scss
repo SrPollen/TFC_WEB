@@ -69,7 +69,7 @@
     right: 1px;
     bottom: 1px;
     text-align: center;
-    background-color: #0c0c0c;
+    background-color: #0c0c2e;
     color: rgba($color: #ffffff, $alpha: 0.5);
     transition: 0.5s;
     z-index: 1;
@@ -91,7 +91,7 @@
     left: 25px;
     width: 84%;
     height: 66%;
-    background: rgba($color: #3d3d3d, $alpha: 0.3);
+    background: rgba($color: #33335e, $alpha: 0.3);
     border-radius: 100%;
 }
 
@@ -129,4 +129,9 @@
     bottom: 0;
     min-width: 100%; 
     min-height: 100%;
+}
+
+.link{
+    color: #216ad6;
+    text-decoration: none;
 }

@@ -21,6 +21,7 @@ class Top extends Component {
       window.location.href = "./login";
     }
 
+    //GET datos del usuario
     fetch(BaseUrl + "/user/" + cookies.get("id"))
       .then((res) => res.json())
       .then((data) => {

@@ -1,13 +1,11 @@
 :root {
     --text-primary: #b6b6b6;
     --text-secondary: #ececec;
-    --bg-primary: #23232e;
-    --bg-secondary: #141418;
+    --bg-primary: #0c0c2e;
+    --bg-secondary: #212142;
     --transition-speed: 600ms;
   }
  
-  
-
   main {
     margin-left: 5rem;
     padding: 1rem;
@@ -70,6 +68,13 @@
     min-width: 2rem;
     margin: 0 1.5rem;
   }
+
+  .nav-link img {
+    max-width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+  
   
   .logo {
     font-weight: bold;
@@ -83,20 +88,21 @@
     width: 100%;
   }
   
-  .logo svg {
+  .logo img {
     transform: rotate(0deg);
     transition: var(--transition-speed);
   }
   
   .logo-text
   {
+    font-size: 20px;
     display: inline;
     position: absolute;
     left: -999px;
     transition: var(--transition-speed);
   }
   
-  .navbar:hover .logo svg {
+  .navbar:hover .logo img {
     transform: rotate(-360deg);
   }
   
@@ -141,7 +147,7 @@
       display: inline;
     }
   
-    .navbar:hover .logo svg
+    .navbar:hover .logo img
     {
       margin-left: 11rem;
     }

@@ -8,19 +8,25 @@ const Profile = ({ user }) => {
             <img className="glow" src="/images/user.png" alt="user" />
           </div>
           <div className="content-right">
-            <div>{user.username}</div>
-            <div>{user.name} {user.lastname}</div>
-            <div>{user.email}</div>
+              <div className="data-user">
+              <div className="username">{user.username}</div>
+              <div className="name">{user.name} {user.lastname}</div>
+              <div className="email">{user.email}</div>
+            </div>
           </div>
         </div>
+        
         <div className="content">
-          <div>Oleada máxima alcanzada: {user.maxWave}</div>
-          <div>Tiempo de juego: {user.playtime}</div>
-          <div>Partidas jugadas: {user.games}</div>
-          <div>Max. enemigos eliminados: {user.maxKills}</div>
-          <div>Total de enemigos eliminados: {user.kills}</div>
-          <div>Daño inflinjido: {user.damage}</div>
-          <div>Oleada maxima alcanzada: {user.maxDamage}</div>
+          <div className="user-title">DATOS DE FIREWAVE</div>
+          <div className="data">
+            <div><span className="user-label">Oleada máxima alcanzada:</span> {user.maxWave}</div>
+            <div><span className="user-label">Tiempo de juego: </span>{parseFloat(user.playtime).toFixed(2)} h</div>
+            <div><span className="user-label">Partidas jugadas: </span>{user.games}</div>
+            <div><span className="user-label">Max. enemigos eliminados: </span>{user.maxKills}</div>
+            <div><span className="user-label">Total de enemigos eliminados: </span>{user.kills}</div>
+            <div><span className="user-label">Daño inflinjido: </span>{user.damage}</div>
+            <div><span className="user-label">Oleada maxima alcanzada: </span>{user.maxDamage}</div>
+          </div>
         </div>
       </div>
     </div>

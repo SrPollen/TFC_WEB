@@ -1,12 +1,13 @@
 import "./Top.scss";
 import { Component } from "react";
 import BaseUrl from "../../components/globalvars";
-import Users from "../../components/users";
 
 import Cookies from "universal-cookie";
 
 import Navbar from "../../components/navbar/Navbar";
 import ScrollTop from "./ScrollTop"
+
+import ParticlesBG from "../../components/particles/Particles";
 
 //import ParticlesBG from "../../components/particles/Particles";
 
@@ -15,6 +16,7 @@ const cookies = new Cookies();
 class Top extends Component {
   state = {
     users: [],
+    position: -1,
     isFetching: true,
   };
 
@@ -23,12 +25,17 @@ class Top extends Component {
       window.location.href = "./login";
     }
 
-    fetch(BaseUrl + "/topwave")
+    fetch(BaseUrl + "/topusers")
       .then((res) => res.json())
       .then((data) => {
         this.setState({ users: data, isFetching: false });
       })
+      .then(()=>{
+        this.setState({ position: this.state.users.findIndex(user => user.id === parseInt(cookies.get("id")))+1 });
+      })
       .catch(console.log);
+
+      
   }
 
 
@@ -36,7 +43,8 @@ class Top extends Component {
     return (
       <div>
         <Navbar />
-        <ScrollTop cookies={cookies} users={this.state.users} />
+        <ParticlesBG className="particles" />
+        <ScrollTop position={this.state.position} users={this.state.users} />
       </div>
     );
   }

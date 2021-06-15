@@ -5,20 +5,16 @@ import {
   batch,
   Fade,
   FadeIn,
-  Move,
-  MoveIn,
   MoveOut,
   Sticky,
   StickyIn,
   ZoomIn,
 } from "react-scroll-motion";
 import TopTable from "./Table";
-import Users from "../../components/users";
 
 const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
-const FadeUp = batch(Fade(), Move(), Sticky());
 
-const ScrollTop = ({ cookies, users }) => {
+const ScrollTop = ({ position, users }) => {
   return (
     <div>
       <ScrollContainer>
@@ -59,7 +55,9 @@ const ScrollTop = ({ cookies, users }) => {
                   textAlign: "center",
                 }}
               >
-                Estas en el puesto:
+                Tu pósicion es la número <br/> 
+                <span style={{ color: "#216ad6",  fontSize: "80px",}}>{ position }</span>
+
               </span>
             </div>
           </Animator>

@@ -1,3 +1,27 @@
+.user-label{
+  color:#8ed2ff;
+  padding-right: 15px;
+}
+.user-title{
+  font-size: 25px;
+}
+
+.data-user{
+  padding-top: 20px;
+  padding-left: 15px;
+  .username{
+    font-size: 45px;
+    margin-bottom: 10px;
+  }
+  .name{
+    font-size: 22px;
+    color:#8ed2ff;
+  }
+  .email{
+    font-size: 15px;
+  }
+}
+
 .account-container {
   color: #fff;
   display: flex;
@@ -11,14 +35,19 @@
   }
   .account {
     border-radius: 60px;
-    border: 7px solid #fff;
-    width: 700px;
+    border: 4px solid #fff;
+    width: 800px;
     height: min-content;
     min-width: 200px;
     min-height: 200px;
-    background-color: #2e2e2e;
+    background-color: #0c0c2e;
     padding: 60px;
     transition: 500ms;
+    @media (max-width: 550px) {
+      padding: 30px;
+      margin-top: 20px;
+      margin-bottom: 100px;
+    }
     .wrapper {
       display: flex;
       @media (max-width: 550px) {
@@ -37,7 +66,7 @@
           padding: 10%;
         }
         img {
-          border: 7px solid #fff;
+          border: 4px solid #fff;
           border-radius: 100%;
           width: 100%;
         }
@@ -55,9 +84,16 @@
       padding-top: 50px;
       width: 100%;
       cursor: default;
+    }
+    .data{
+      padding-top: 20px;
+      padding-left: 15px;
       :hover {
         transform: scale(1.1);
       }
+    }
+    .content .data div{
+      margin-bottom: 10px;
     }
   }
 }
@@ -70,7 +106,7 @@
 
 .glow {
   //box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #f0f, inset -20px 0 80px #0ff, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff,0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
-  box-shadow: 0 0 30px #ff79ed, 0 0 20px #fff, 0 0 40px #00e1ff;
+  box-shadow: 0 0 30px #12007a, 0 0 20px #fff, 0 0 40px #0099ff;
 
   //#00f,#0f0,#ff0,#f00,#fb0094,#00f,#0f0,#ff0,#f00
 }
