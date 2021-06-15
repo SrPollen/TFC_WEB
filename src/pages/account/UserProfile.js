@@ -25,7 +25,7 @@ const Profile = ({ user }) => {
             <div><span className="user-label">Max. enemigos eliminados: </span>{user.maxKills}</div>
             <div><span className="user-label">Total de enemigos eliminados: </span>{user.kills}</div>
             <div><span className="user-label">Daño inflinjido: </span>{user.damage}</div>
-            <div><span className="user-label">Oleada maxima alcanzada: </span>{user.maxDamage}</div>
+            <div><span className="user-label">Max. daño inflinjido: </span>{user.maxDamage}</div>
           </div>
         </div>
       </div>

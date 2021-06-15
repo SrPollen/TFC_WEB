@@ -11,8 +11,8 @@ import MailIcon from "@material-ui/icons/Mail";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import ErrorIcon from "@material-ui/icons/Error";
 
-import ImageLogin from "../../resources/log.svg";
-import ImageRegister from "../../resources/register.svg";
+import ImageLogin from "../../resources/log.png";
+import ImageRegister from "../../resources/register.png";
 
 import ParticlesBG from "../../components/particles/Particles";
 
