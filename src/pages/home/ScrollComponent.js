@@ -51,7 +51,7 @@ const ScrollComponent = ({ cookies }) => {
               </div>
               <div className="break"></div>
               <div className="button-container">
-                <a href="/images/user.png" download className="rgb"><span><GetAppIcon style={{ fontSize: 80 , marginTop: 80 }} /> <br />Descargar </span></a>
+                <a href="/game/TFC_Game.zip" download className="rgb"><span><GetAppIcon style={{ fontSize: 80 , marginTop: 80 }} /> <br />Descargar </span></a>
               </div>
             </div>
           </Animator>

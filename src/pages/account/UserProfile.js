@@ -1,5 +1,4 @@
 const Profile = ({ user }) => {
-  console.log("dd " +  user.name);
   return (
     <div className="account-container">
       <div className="account glow">

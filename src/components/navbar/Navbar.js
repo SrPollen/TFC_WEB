@@ -51,7 +51,7 @@ const Navbar = () => {
         </li>
 
         <li className="nav-item">
-          <a href="/images/user.png" download className="nav-link">
+          <a href="/game/TFC_Game.zip" download className="nav-link">
             <GetAppIcon />
             <span className="link-text">Descarga</span>
           </a>
